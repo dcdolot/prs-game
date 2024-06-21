@@ -39,4 +39,27 @@ function getHumanChoice() {
 
 humanChoice = getHumanChoice()
 
+function playRound(computerChoice, humanChoice) {
+    if(computerChoice == humanChoice) {
+        console.log(computerChoice, humanChoice)
+        return "It's a tie!";
+    }
+    else if(computerChoice == "rock" && humanChoice == "paper") {
+        console.log(computerChoice, humanChoice)
+        return "You win!";
+    }
+    else if(computerChoice == "paper" && humanChoice == "scissors") {
+        console.log(computerChoice, humanChoice)
+        return "You win!";
+    }
+    else if(computerChoice == "scissors" && humanChoice == "rock") {
+        console.log(computerChoice, humanChoice)
+        return "You win!";
+    }
+    else {
+        console.log(computerChoice, humanChoice)
+        return "You lose!"
+    }
+}
+        
 
