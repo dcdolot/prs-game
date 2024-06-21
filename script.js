@@ -62,4 +62,15 @@ function playRound(computerChoice, humanChoice) {
     }
 }
         
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
 
+        let result = playRound(computerChoice, humanChoice);
+
+        console.log(`Round ${i + 1}: I chose ${computerChoice}. You chose ${humanChoice}. Result: ${result}`)
+    }
+}
+
+playGame()
