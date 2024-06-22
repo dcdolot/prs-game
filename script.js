@@ -1,3 +1,4 @@
+// Make the computer choose randomly among the choices: rock, paper, and scissors.
 function getComputerChoice() {
     let computerChoice = Math.random();
     
@@ -15,6 +16,8 @@ function getComputerChoice() {
 
 computerChoice = getComputerChoice()
 
+
+// Add prompt that allows users to input their pick among the three choices. must be case-insensitive.
 function getHumanChoice() {
     let humanChoice = window.prompt("Please input rock, paper, or scissors")
     humanChoice = humanChoice.toLowerCase()
@@ -39,6 +42,8 @@ function getHumanChoice() {
 
 humanChoice = getHumanChoice()
 
+
+// Play a single round and determine the winner.
 function playRound(computerChoice, humanChoice) {
     if(computerChoice == humanChoice) {
         console.log(computerChoice, humanChoice)
@@ -61,7 +66,8 @@ function playRound(computerChoice, humanChoice) {
         return "You lose!"
     }
 }
-        
+ 
+// Play five consecutive rounds.
 function playGame() {
     for (let i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice();
