@@ -1,4 +1,7 @@
-// Function to play a single round and determine the winner
+let playerScore = 0;
+let computerScore = 0;
+let roundCount = 0;
+
 function playRound(playerSelection) {
     // Define possible choices
     const choices = ["Rock", "Paper", "Scissors"];
@@ -7,48 +10,59 @@ function playRound(playerSelection) {
     console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`);
 
     if (playerSelection === computerSelection) {
-        console.log("It's a tie!");
+        // console.log("It's a tie!");
+        return "It's a tie!";
     } else if (
         (playerSelection === "Rock" && computerSelection === "Scissors") ||
         (playerSelection === "Paper" && computerSelection === "Rock") ||
         (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
-        console.log("You win!");
+        playerScore++;
+        // console.log("You win this round!");
+        return "You win this round!";
     } else {
-        console.log("You lose!");
+        computerScore++;
+        // console.log("Computer wins this round!");
+        return "Computer wins this round!";
+    }
+}
+
+function checkWinner() {
+    console.log(`Final Scores - Player: ${playerScore}, Computer: ${computerScore}`);
+    if (playerScore > computerScore) {
+        console.log("You are the overall winner!");
+    } else if (playerScore < computerScore) {
+        console.log("Computer is the overall winner!");
+    } else {
+        console.log("The game is a tie!");
+    }
+}
+
+function playGame(playerSelection) {
+    const result = playRound(playerSelection);
+    console.log(result);
+    roundCount++;
+
+    if (roundCount === 5) {
+        checkWinner();
     }
 }
 
 // Add event listeners to the buttons
 document.getElementById('rockButton').addEventListener('click', () => {
     alert('You chose Rock!');
-    playRound('Rock');
+    playGame('Rock');
 });
 
 document.getElementById('paperButton').addEventListener('click', () => {
     alert('You chose Paper!');
-    playRound('Paper');
+    playGame('Paper');
 });
 
 document.getElementById('scissorsButton').addEventListener('click', () => {
     alert('You chose Scissors!');
-    playRound('Scissors');
+    playGame('Scissors');
 });
-
- 
-// // Play five consecutive rounds.
-// function playGame() {
-//     for (let i = 0; i < 5; i++) {
-//         let computerSelection = getComputerChoice();
-//         let playerSelection = getHumanChoice();
-
-//         let result = playRound(computerSelection, playerSelection);
-
-//         console.log(`Round ${i + 1}: I chose ${computerChoice}. You chose ${humanChoice}. Result: ${result}`)
-//     }
-// }
-
-// playGame()
 
 
 
